@@ -48,7 +48,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:import/recommended",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:unicorn/recommended"
 //    "airbnb",
 //    "plugin:jest/recommended",
 //    "prettier/standard",
@@ -95,6 +96,27 @@
       "always"
     ],
     "import/no-extraneous-dependencies": 0,
-    "import/order": "error"
+    "import/order": "error",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
+      }
+    ],
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "whitelist": {
+          "props": true,
+          "mapStateToProps": true,
+          "mapDispatchToProps": true,
+          "refHook": true,
+          "val": true
+        }
+      }
+    ]
   }
 }

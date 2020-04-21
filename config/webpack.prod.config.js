@@ -113,7 +113,6 @@ module.exports = merge(baseConfig, {
     }),
     new GenerateSW({
       swDest: "sw.js",
-      importWorkboxFrom: "local",
       clientsClaim: true,
       skipWaiting: true
     }),
