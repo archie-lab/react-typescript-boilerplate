@@ -1,13 +1,13 @@
 const webpack = require("webpack");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
-const paths = require("./paths");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const paths = require("./paths");
 const config = require("./config");
 
 process.noDeprecation = true;
-const nodeEnv = process.env.NODE_ENV || "development";
-const isProduction = nodeEnv === "production";
+const nodeEnvironment = process.env.NODE_ENV || "development";
+const isProduction = nodeEnvironment === "production";
 
 module.exports = {
   entry: paths.entryPath,
@@ -91,18 +91,18 @@ module.exports = {
       __CLIENT__: true,
       __SERVER__: false,
       __DEV__: !isProduction,
-      env: nodeEnv,
+      env: nodeEnvironment,
       "process.env": {
-        NODE_ENV: JSON.stringify(nodeEnv)
+        NODE_ENV: JSON.stringify(nodeEnvironment)
       }
     }),
     new webpack.ContextReplacementPlugin(
-      /date\-fns[\/\\]/,
-      new RegExp(`[/\\\\\](${config.supportedLocales.join('|')})[/\\\\\]`)
+      /date-fns[/\\]/,
+      new RegExp(`[/\\\\\](${config.supportedLocales.join("|")})[/\\\\\]`)
     ),
     new DuplicatePackageCheckerPlugin({
       verbose: true
     }),
-    new CopyWebpackPlugin([{ from: "public", to: "./" }]),
+    new CopyWebpackPlugin({patterns: [{from: "public", to: "./"}]})
   ]
 };

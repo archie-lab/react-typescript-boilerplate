@@ -3,6 +3,9 @@ import Backend from "i18next-xhr-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import {initReactI18next} from "react-i18next";
 
+console.log("asdasdasdsa");
+
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -15,5 +18,8 @@ i18n
     defaultNS: "common",
     interpolation: {
       escapeValue: false
+    },
+    react: {
+      useSuspense: false
     }
   });
