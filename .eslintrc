@@ -107,10 +107,11 @@
       }
     ],
     "unicorn/prevent-abbreviations": [
-      "error",
+      "warn",
       {
         "whitelist": {
           "props": true,
+          "Props": true,
           "mapStateToProps": true,
           "mapDispatchToProps": true,
           "refHook": true,
