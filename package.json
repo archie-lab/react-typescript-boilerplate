@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",
     "formik": "^2.1.5",
